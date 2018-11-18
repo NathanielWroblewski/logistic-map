@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bifurcation diagram of the logistic map</title>
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <link rel="apple-touch-icon-precomposed" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <meta name="description" content="An interactive bifurcation diagram of the logistic map" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:title" content="Bifurcations">
+    <meta name="twitter:description" content="An interactive bifurcation diagram of the logistic map">
+    <meta name="twitter:image" content="https://nathanielwroblewski.github.io/logistic-map/screenshot.png">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Bifurcations" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nathanielwroblewski.github.io/bifurcation-diagram" />
+    <meta property="og:image" content="https://nathanielwroblewski.github.io/logistic-map/screenshot.png" />
+    <meta property="og:description" content="An interactive bifurcation diagram of the logistic map" />
+    <meta property="og:site_name" content="Bifurcations" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Bifurcations">
+    <meta itemprop="description" content="An interactive bifurcation diagram of the logistic map">
+    <meta itemprop="image" content="https://nathanielwroblewski.github.io/logistic-map/screenshot.png">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Visualizing bifurcations</h1>
+      <p class="subtitle">of the logistic map</p>
+      <section>
+        <p class="text">
+          In the study of dynamical systems, the iterated <defn>logistic map</defn> is a canonical example of a simple, deterministic function which exhibits a surprising array of behavior: stable fixed points, periodic orbits, aperiodic orbits, etc.  Mathematically, the logistic map is written as <i>x<sub>n+1</sub></i> &equals; <i>rx<sub>n</sub></i>(1 &minus; <i>x<sub>n</sub></i>) where <i>x<sub>n</sub></i> is a number in the interval [0, 1] and the parameter <i>r</i> is in the interval [0, 4].
+        </p>
+        <p class="text">
+          Figure one illustrates the behavior of the logistic map where <i>x<sub>n</sub></i> &equals; 0.1 and <i>r</i> &equals; 2.9.  To the left, the orbit for the first one-hundred iterations is plotted as a timeseries.  To the right, a <defn>final-state diagram</defn> summarizes the long-term behavior: a single, stable fixed point near 0.655.
+        </p>
+        <figure class="figure one">
+          <figcaption class="figure-title text">
+            Fig. 1: Time series and final state diagram for <i>x<sub>0</sub></i> &equals; 0.1 and <i>r</i> &equals; 2.9
+          </figcaption>
+          <div class="timeseries-container">
+            <canvas class="timeseries" width="585px" height="200px"></canvas>
+            <canvas class="final-state" width="10px" height="200px"></canvas>
+          </div>
+        </figure>
+        <p class="text">
+          In figure two where <i>r</i> &equals; 3.2, the long-term behavior is a stable cycle of period two.
+        </p>
+        <figure class="figure two">
+          <figcaption class="figure-title text">
+            Fig. 2: Time series and final state diagram for <i>x<sub>0</sub></i> &equals; 0.1 and <i>r</i> &equals; 3.2
+          </figcaption>
+          <div class="timeseries-container">
+            <canvas class="timeseries" width="585px" height="200px"></canvas>
+            <canvas class="final-state" width="10px" height="200px"></canvas>
+          </div>
+        </figure>
+        <p class="text">
+          In figure three where <i>r</i> &equals; 3.628, the orbit evenutally falls into a stable cycle of period six.
+        </p>
+        <figure class="figure three">
+          <figcaption class="figure-title text">
+            Fig. 3: Time series and final state diagram for <i>x<sub>0</sub></i> &equals; 0.1 and <i>r</i> &equals; 3.628
+          </figcaption>
+          <div class="timeseries-container">
+            <canvas class="timeseries" width="585px" height="200px"></canvas>
+            <canvas class="final-state" width="10px" height="200px"></canvas>
+          </div>
+        </figure>
+        <p class="text">
+          In figure four where <i>r</i> &equals; 3.9, we discover an aperiodic orbit.
+        </p>
+        <figure class="figure four">
+          <figcaption class="figure-title text">
+            Fig. 4: Time series and final state diagram for <i>x<sub>0</sub></i> &equals; 0.1 and <i>r</i> &equals; 3.9
+          </figcaption>
+          <div class="timeseries-container">
+            <canvas class="timeseries" width="585px" height="200px"></canvas>
+            <canvas class="final-state" width="10px" height="200px"></canvas>
+          </div>
+        </figure>
+        <p class="text">
+          Figure five is an interactive timeseries and final-state diagram.  Experiment with different seeds and <i>r</i> parameters to see their long-term behavior.
+        </p>
+        <figure class="figure five">
+          <figcaption class="figure-title text">
+            Fig. 5: Interactive time series plot and final state diagram for logistic map
+          </figcaption>
+          <div class="timeseries-container">
+            <canvas class="timeseries" width="585px" height="200px"></canvas>
+            <canvas class="final-state" width="10px" height="200px"></canvas>
+          </div>
+          <form class="timeseries-form"></form>
+        </figure>
+        <p class="text">
+          By concatenating each final-state diagram as we vary <i>r</i> over some interval within [0, 4], we discover an interesting, self-similar, bifurcation diagram.  In the study of dynamical systems, a <defn>bifurcation diagram</defn> shows the values visited or approached asymptotically (fixed points, periodic orbits, or chaotic attractors) of a system as a function of a bifurcation parameter in the system (<i>r</i> in the case of the iterated logistic map).
+        </p>
+        <figure class="figure six">
+          <figcaption class="figure-title text">
+            Fig. 6: Interactive bifurcation diagram of the logistic map
+          </figcaption>
+          <div class="canvas-container">
+            <canvas class="bifurcation-diagram" width="600px" height="400px">
+            </canvas>
+            <canvas class="interaction-layer" width="600px" height="400px">
+            </canvas>
+          </div>
+          <form class="bifurcation-form"></form>
+        </figure>
+        <p class="text">
+          To more easily explore the bifurcation diagram, you can zoom in on a region by clicking and dragging.  Offset and limit parameters are introduced to help render regions at higher magnifications.  Offset modifies how many iterations are not plotted, thereby allowing more time for convergence. Limit modifies the number of plotted iterations.  The feathering that occurs near bifurcations can be refined by increasing the offset, and at high maginifcations, sparse regions can be populated more densely by increasing the limit parameter.
+        </p>
+      </section>
+    </div>
+  </body>
+  <script type="module" src="/public/javascripts/main.js"></script>
+</html>
